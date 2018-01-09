@@ -6,7 +6,7 @@ const app = express();
 const { routes } = require('./api/routes/routes');
 
 const corsOptions = {
-  origin: 'http://localhost:3000',
+  origin: 'http://localhost:3000', 
   methods: 'GET, HEAD, PUT, PATCH, POST, DELETE',
   preflightContinue: true,
   optionsSuccessStatus: 204,
@@ -18,7 +18,7 @@ const port = process.env.PORT || '5000';
 app.set('port', port);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(cors(corsOptions));
+app.use(cors());
 routes(app);
 
 const server = http.createServer(app);
